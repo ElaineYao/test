@@ -21,10 +21,11 @@ cd $droneFolder
 # eval folder
 if [ ! -d $evalFolder ]
 then 
+	exit 1
 	git clone $repo_eval
 else
 	cd "./eval"
-	git pull
+#	git pull
 fi
 
 cd $devFolder
@@ -32,10 +33,11 @@ repo_swarm="https://github.com/ElaineYao/swarm_attack.git"
 if [ ! -d "./m1" ]
 then
     mkdir ./m1 && cd ./m1
+    exit 1
     git clone $repo_swarm
 else
     cd "m1/swarm_attack"
-    git pull
+#    git pull
 fi
 
 cd $devFolder
@@ -48,7 +50,7 @@ do
                 echo "Created $mFolder."
         else
         	cd "$mFolder/swarm_attack"
-        	git pull
+#        	git pull
         	cd ../../
         fi
 done
